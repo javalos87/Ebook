@@ -1,0 +1,18 @@
+.cart-container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  text-align: center;
+}
