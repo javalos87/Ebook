@@ -14,22 +14,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Badge from "@mui/material/Badge";
-import { styled } from "@mui/material/styles";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
-import { menuNavigate } from "../../../routes/menuNavigate";
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  "& .MuiBadge-badge": {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: "0 4px",
-  },
-}));
+import { Link } from "react-router-dom";
+
+import { menuNavigate } from "../../../routes/menuNavigate";
+import WidgetCart from "../../common/widgetcart/WidgetCart";
 
 const drawerWidth = 240;
 
@@ -60,8 +49,6 @@ function DrawerAppBar(props) {
       </List>
     </Box>
   );
-  const { getTotalItems } = useContext(CartContext);
-  let totalItems = getTotalItems();
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
@@ -99,13 +86,7 @@ function DrawerAppBar(props) {
                 </Link>
               ))}
             </Box>
-            <Link to="/carrito">
-              <IconButton aria-label="cart">
-                <StyledBadge badgeContent={totalItems} showZero color="primary">
-                  <ShoppingCartIcon />
-                </StyledBadge>
-              </IconButton>
-            </Link>
+            <WidgetCart />
           </Toolbar>
         </AppBar>
         <Box component="nav">
